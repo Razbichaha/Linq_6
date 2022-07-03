@@ -45,7 +45,7 @@ namespace Linq_6
             Console.WriteLine("   Имя      Звание");
             Console.WriteLine();
 
-            var soldierData = from soldier in _soldiers select (soldier.GetName(), soldier.GetRank());
+            var soldierData = from soldier in _soldiers select (soldier.Name, soldier.Rank);
 
             foreach (var data in soldierData)
             {
@@ -97,34 +97,17 @@ namespace Linq_6
 
     class Soldier
     {
-        private string _name;
-        private string _weapon;
-        private string _rank;
-        private int _timeServed;
+        internal string Name { get ;private set ; }
+        internal string Weapon { get ;private set ; }
+        internal string Rank { get;private set; }
+        internal int TimeServed { get ;private set ; }
 
         public Soldier(string name, string weapon, string rank, int timeServed)
         {
-            _name = name;
-            _weapon = weapon;
-            _rank = rank;
-            _timeServed = timeServed;
-        }
-
-        internal string GetName()
-        {
-            return _name;
-        }
-        internal string GetWeapon()
-        {
-            return _weapon;
-        }
-        internal string GetRank()
-        {
-            return _rank;
-        }
-        internal int GetTimeServed()
-        {
-            return _timeServed;
+            Name = name;
+            Weapon = weapon;
+            Rank = rank;
+            TimeServed = timeServed;
         }
     }
 }
